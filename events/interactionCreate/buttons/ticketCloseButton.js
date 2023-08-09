@@ -20,19 +20,16 @@ module.exports = async (interaction,db) => {
 			.setCustomId('ticketSebepModal')
 			.setTitle('Sebep Belirtiniz');
 
-		const reason = new TextInputBuilder()
-			.setCustomId('ticketClosingReason')
-			.setLabel("Sebep")
-  		.setStyle(TextInputStyle.Paragraph)
-      .setRequired(false)
-      .setMaxLength(1024)
+  const reason = new TextInputBuilder()
+		 .setCustomId('ticketClosingReason')
+		 .setLabel("Sebep")
+  		 .setStyle(TextInputStyle.Paragraph)
+                 .setRequired(false)
+                 .setMaxLength(1024)
 
 
-		const firstActionRow = new ActionRowBuilder().addComponents(reason);
-
+  const firstActionRow = new ActionRowBuilder().addComponents(reason);
 	
-		modal.addComponents(firstActionRow);
-
-	
-		await interaction.showModal(modal);
+  modal.addComponents(firstActionRow);	
+  await interaction.showModal(modal);
 }
