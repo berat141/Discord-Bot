@@ -17,8 +17,8 @@ module.exports = async (interaction,db) => {
   }
 
   const modal = new ModalBuilder()
-			.setCustomId('ticketSebepModal')
-			.setTitle('Sebep Belirtiniz');
+		.setCustomId('ticketSebepModal')
+		.setTitle('Sebep Belirtiniz');
 
   const reason = new TextInputBuilder()
 		 .setCustomId('ticketClosingReason')
