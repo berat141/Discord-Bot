@@ -44,7 +44,7 @@ module.exports.info = {
   permissions:["ManageGuild"],
   aliases:[],
   data:new SlashCommandBuilder()
-    .setName("ticket-kurulum")
-    .setDescription("b")
-    .setDefaultMemberPermissions(PermissionFlagsBits.ManageGuild)
+       .setName("ticket-kurulum")
+       .setDescription("b")
+       .setDefaultMemberPermissions(PermissionFlagsBits.ManageGuild)
 }
