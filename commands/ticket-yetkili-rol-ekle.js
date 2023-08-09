@@ -12,10 +12,10 @@ module.exports.run = async (interaction,db) => {
    await db.push(`ticketRol_${guild.id}`,role.id)
   }
   embed = new EmbedBuilder()
-  .setTitle("Yetkili Rol Eklendi!")
-  .setDescription(`**Eklenen Yetkili Rol:**<@&${role.id}>`)
-  .setColor("Green")
-  .setTimestamp()
+          .setTitle("Yetkili Rol Eklendi!")
+          .setDescription(`**Eklenen Yetkili Rol:**<@&${role.id}>`)
+          .setColor("Green")
+          .setTimestamp()
 
   interaction.reply({embeds:[embed]})
 }
