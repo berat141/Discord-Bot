@@ -12,9 +12,9 @@ module.exports.run = async (interaction,db) =>{
 
   if(!channelId){
   const warnEmbed = new EmbedBuilder()
-  .setTitle("**Kurulum Komutları**")
-  .setDescription(`\n/ticket-mesaj-kanal-ayarla {kanal}\n(Gerekli)\n\n/ticket-yetkili-rol-ekle {rol}\n(İsteğe Bağlı)\n\n/ticket-log-ayarla {kanal}\n(İsteğe Bağlı)\n\n**Ayarlanma Durumları:**\nTicket Mesaj Kanalı: ❌\nTicket Yetkili Rolleri: ${staffRoles?.length > 0 ? staffRoles.map(x=>"<@&"+x+">") : '❌'}\nTicket Log Kanalı:${log ? log.map(x=>'<#'+x+'>') : '❌'}`)
-    .setColor('Yellow')
+                    .setTitle("**Kurulum Komutları**")
+                    .setDescription(`\n/ticket-mesaj-kanal-ayarla {kanal}\n(Gerekli)\n\n/ticket-yetkili-rol-ekle {rol}\n(İsteğe Bağlı)\n\n/ticket-log-ayarla {kanal}\n(İsteğe Bağlı)\n\n**Ayarlanma Durumları:**\nTicket Mesaj Kanalı: ❌\nTicket Yetkili Rolleri: ${staffRoles?.length > 0 ? staffRoles.map(x=>"<@&"+x+">") : '❌'}\nTicket Log Kanalı:${log ? log.map(x=>'<#'+x+'>') : '❌'}`)
+                    .setColor('Yellow')
 
     return interaction.reply({embeds:[warnEmbed]})
   }
@@ -24,15 +24,15 @@ module.exports.run = async (interaction,db) =>{
   db.set("ticketCount_"+interaction.guild.id,0)
 
   const embed = new EmbedBuilder()
-  .setTitle("Destek Talebi")
-  .setDescription("Özel destek kanalı açmak için tıklayın!")
-  .setColor("#2C86DB")
+                .setTitle("Destek Talebi")
+                .setDescription("Özel destek kanalı açmak için tıklayın!")
+                .setColor("#2C86DB")
   
 
   button = new ButtonBuilder()
-	.setCustomId('open')
-	.setLabel('📩')
-	.setStyle(ButtonStyle.Danger)
+	   .setCustomId('open')
+	   .setLabel('📩')
+	   .setStyle(ButtonStyle.Danger)
   
   row = new ActionRowBuilder()
         .addComponents(button)
