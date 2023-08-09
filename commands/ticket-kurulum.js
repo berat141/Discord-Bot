@@ -16,13 +16,13 @@ module.exports.run = async (interaction,db) =>{
                     .setDescription(`\n/ticket-mesaj-kanal-ayarla {kanal}\n(Gerekli)\n\n/ticket-yetkili-rol-ekle {rol}\n(İsteğe Bağlı)\n\n/ticket-log-ayarla {kanal}\n(İsteğe Bağlı)\n\n**Ayarlanma Durumları:**\nTicket Mesaj Kanalı: ❌\nTicket Yetkili Rolleri: ${staffRoles?.length > 0 ? staffRoles.map(x=>"<@&"+x+">") : '❌'}\nTicket Log Kanalı:${log ? log.map(x=>'<#'+x+'>') : '❌'}`)
                     .setColor('Yellow')
 
-    return interaction.reply({embeds:[warnEmbed]})
+  return interaction.reply({embeds:[warnEmbed]})
   }
 
   
   const channel = await interaction.guild.channels.cache.get(channelId)
-  db.set("ticketCount_"+interaction.guild.id,0)
-
+  
+  await db.set("ticketCount_"+interaction.guild.id,0)
   const embed = new EmbedBuilder()
                 .setTitle("Destek Talebi")
                 .setDescription("Özel destek kanalı açmak için tıklayın!")
@@ -36,10 +36,8 @@ module.exports.run = async (interaction,db) =>{
   
   row = new ActionRowBuilder()
         .addComponents(button)
-  interaction.reply({embeds:[embed],components:[row]})
 
-  
-  
+  interaction.reply({embeds:[embed],components:[row]}) 
 }
 module.exports.info = {
   name:"ticket-kurulum",
