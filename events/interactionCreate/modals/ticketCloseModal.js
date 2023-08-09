@@ -11,16 +11,15 @@ module.exports = async (interaction,db) => {
   await interaction.guild.channels.delete(interaction.channel.id,reason.value)
   interaction.reply("")
   embed = new EmbedBuilder()
-    //  console.log(reason)
-    .setTitle("Destek Kapatıldı!")
-    .addFields(
-      {name:"Ticket ID", value:String(ticketCount)},
-      {name:"Destek Talebini Açan Kişi",value:`<@${opener}>`},
-      {name:"Destek Talebini Kapatan Kişi",value:`<@${interaction.user.id}>`},
-     {name:"Sebep", value:reason.value.length > 0 ? reason.value : "Sebep Belirtilmedi"}
-    )
-    .setTimestamp()
-    .setColor("Green")
+          .setTitle("Destek Kapatıldı!")
+          .addFields(
+          {name:"Ticket ID", value:String(ticketCount)},
+          {name:"Destek Talebini Açan Kişi",value:`<@${opener}>`},
+          {name:"Destek Talebini Kapatan Kişi",value:`<@${interaction.user.id}>`},
+          {name:"Sebep", value:reason.value.length > 0 ? reason.value : "Sebep Belirtilmedi"}
+          )
+          .setTimestamp()
+          .setColor("Green")
 
   if(log) {
 interaction.guild.channels.cache.get(log).send({embeds:[embed]})
