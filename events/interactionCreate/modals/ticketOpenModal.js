@@ -70,9 +70,9 @@ module.exports = async (interaction,db) => {
 
   
   const close = new ButtonBuilder()
-			.setCustomId('ticketKapat')
-			.setLabel('Kapat')
-			.setStyle(ButtonStyle.Danger);
+		.setCustomId('ticketKapat')
+		.setLabel('Kapat')
+		.setStyle(ButtonStyle.Danger);
 
   const row = new ActionRowBuilder().addComponents(close)
 		
