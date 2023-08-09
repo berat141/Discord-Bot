@@ -4,10 +4,10 @@ module.exports.run = async (interaction,db) => {
   const channel = interaction.options.getChannel("kanal")
   await db.set(`ticketLog_${interaction.guild.id}`, channel.id)
   embed = new EmbedBuilder()
-  .setTitle("Ticket Log Kanalı Ayarlandı!")
-  .setDescription("**Kanal:**<#"+channel.id+">")
-  .setColor("Green")
-  .setTimestamp()
+          .setTitle("Ticket Log Kanalı Ayarlandı!")
+          .setDescription("**Kanal:**<#"+channel.id+">")
+          .setColor("Green")
+          .setTimestamp()
 
   interaction.reply({embeds:[embed]})
   
@@ -21,10 +21,10 @@ module.exports.info = {
     .setName("ticket-log-ayarla")
     .setDescription("b")
     .addChannelOption(option => 
-         option
-         .setName('kanal')
-         .setDescription('d')
-         .setRequired(true)
-         .addChannelTypes(ChannelType.GuildText))
-         .setDefaultMemberPermissions(PermissionFlagsBits.ManageGuild)
+     option
+     .setName('kanal')
+     .setDescription('d')
+     .setRequired(true)
+     .addChannelTypes(ChannelType.GuildText))
+    .setDefaultMemberPermissions(PermissionFlagsBits.ManageGuild)
 }
